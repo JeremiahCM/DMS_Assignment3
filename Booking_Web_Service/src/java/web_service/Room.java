@@ -1,57 +1,42 @@
 /*
- * JPA Entity class that represents a Room, as a Java Bean
- * Entity has attribute for a room ID, room name and romm location
- * Implemented get and set methods to acccess and manage these attributes
- * @author Jeremiah Martinez: 18027693 | ?: ?
- * 
- * The files have used code learned from several stackoverflow threads, Telusko youtube channel and reused
- * from lab exercises, few bits of the following is adapted not copy and pasted, except for lab code we have used
-*/
+ * JavaBean class that represents a Room
+ */
 package web_service;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-//Define class Task to be used for dgn1399_etasks table in database
-@Entity
-@Table(name = "dgn1399_rooms")
-public class Room implements Serializable{
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+public class Room {
     private int r_id;
-    @Column(name = "room_name")
-    private String roomName;
-    @Column(name = "room_location")
-    private String roomLocation;
+    private String room_name;
+    private String room_location;
     
     public Room()
     {
     }
     
-    public void setRoom(String roomName)
+    public Room(int r_id, String room_name, String room_location)
+   {
+      setRoomID(r_id);
+      setName(room_name);
+      setLocation(room_location);
+   }
+    
+    public void setName(String roomName)
     {
-        this.roomName = roomName;
+        this.room_name = room_name;
     }
     
-    public String getRoom()
+    public String getName()
     {
-        return this.roomName;
+        return this.room_name;
     }
     
     public void setLocation(String roomLocation)
     {
-        this.roomLocation = roomLocation;
+        this.room_location = room_location;
     }
     
     public String getLocation()
     {
-        return this.roomLocation;
+        return this.room_location;
     }
     
     public void setRoomID(int r_id)
@@ -62,5 +47,16 @@ public class Room implements Serializable{
     public int getRoomID()
     {
         return this.r_id;
+    }
+    
+    public String getXMLString()
+    {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("<room>");
+        buffer.append("<r_id>").append(getRoomID()).append("</r_id>");
+        buffer.append("<room_name>").append(getName()).append("</room_name>");
+        buffer.append("<room_location>").append(getLocation()).append("</room_location>");
+        buffer.append("</room>");
+        return buffer.toString();
     }
 }

@@ -1,42 +1,26 @@
 /*
- * JPA Entity class that represents a Student, as a Java Bean
- * Entity has attribute for student ID, password, first name and last name
- * Implemented get and set methods to acccess and manage these attributes
- * @author Jeremiah Martinez: 18027693 | ?: ?
- * 
- * The files have used code learned from several stackoverflow threads, Telusko youtube channel and reused
- * from lab exercises, few bits of the following is adapted not copy and pasted, except for lab code we have used
-*/
+ * JavaBean class that represents a Student
+ */
+
 package web_service;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-//Define class Entity to be used for dgn1399_students table in database
-@Entity
-@Table(name = "dgn1399_students")
-public class Student implements Serializable
+public class Student
 {
-    /*Entity will have an automatically generated ID, incremented one above the
-    previous student ID generated*/
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int s_id;
-    @Column(name = "password")
     private String password;
-    @Column(name = "first_name")
     private String fName;
-    @Column(name = "last_name")
     private String lName;
 
     public Student()
     {
+    }
+    
+    public Student(int s_id, String password, String fName, String lName)
+    {
+        setStuID(s_id);
+        setPassword(password);
+        setFname(fName);
+        setLname(lName);
     }
 
     //Setter for first name
@@ -85,5 +69,17 @@ public class Student implements Serializable
     public int getStuID()
     {
         return s_id;
+    }
+    
+    public String getXMLString()
+    {
+        StringBuilder buffer = new StringBuilder();
+        buffer.append("<student>");
+        buffer.append("<s_id>").append(getStuID()).append("</s_id>");
+        buffer.append("<password>").append(getPassword()).append("</password>");
+        buffer.append("<fName>").append(getFname()).append("</fName>");
+        buffer.append("<lName>").append(getLname()).append("</lName>");
+        buffer.append("</student>");
+        return buffer.toString();
     }
 }
