@@ -17,7 +17,7 @@ public class Student
     
     public Student(int s_id, String password, String fName, String lName)
     {
-        setStuID(s_id);
+        setStudentID(s_id);
         setPassword(password);
         setFname(fName);
         setLname(lName);
@@ -60,13 +60,13 @@ public class Student
     }
 
     //Setter for student ID
-    public void setStuID(int e_id)
+    public void setStudentID(int s_id)
     {
-        this.s_id = e_id;
+        this.s_id = s_id;
     }
 
     //Getter for student ID
-    public int getStuID()
+    public int getStudentID()
     {
         return s_id;
     }
@@ -75,7 +75,7 @@ public class Student
     {
         StringBuilder buffer = new StringBuilder();
         buffer.append("<student>");
-        buffer.append("<s_id>").append(getStuID()).append("</s_id>");
+        buffer.append("<s_id>").append(getStudentID()).append("</s_id>");
         buffer.append("<password>").append(getPassword()).append("</password>");
         buffer.append("<fName>").append(getFname()).append("</fName>");
         buffer.append("<lName>").append(getLname()).append("</lName>");
