@@ -1,12 +1,7 @@
 /*
- * JPA Entity class that represents a Room, as a Java Bean
- * Entity has attribute for a room ID, room name and romm location
- * Implemented get and set methods to acccess and manage these attributes
- * @author Jeremiah Martinez: 18027693 | ?: ?
- * 
- * The files have used code learned from several stackoverflow threads, Telusko youtube channel and reused
- * from lab exercises, few bits of the following is adapted not copy and pasted, except for lab code we have used
-*/
+ * JavaBean class that represents a Room
+ */
+
 package web_service;
 
 import java.io.Serializable;
