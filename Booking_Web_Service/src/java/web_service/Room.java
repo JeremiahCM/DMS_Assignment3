@@ -4,58 +4,67 @@
 
 package web_service;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-//Define class Task to be used for dgn1399_etasks table in database
-@Entity
-@Table(name = "dgn1399_rooms")
-public class Room implements Serializable{
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int r_id;
-    @Column(name = "room_name")
-    private String roomName;
-    @Column(name = "room_location")
-    private String roomLocation;
+public class Room {
     
+    private String r_ID;
+    private String r_Location;
+    private boolean r_Availability;
+    //private String r_TImeSlot; - add later once app works as 
+    //this function is more complex 
+   
+    //Default constructor
     public Room()
     {
     }
     
-    public void setRoom(String roomName)
+    //Constructor to initialize instance variables
+    public Room(String r_ID, String r_Location, boolean r_Availability)
     {
-        this.roomName = roomName;
+        setRoomID(r_ID);
+        setRoomLocation(r_Location);
+        setRoomAvailability(true);
+        //setRoomTimeslot(r_Timeslot); 
     }
     
-    public String getRoom()
-    {
-        return this.roomName;
-    }
-    
-    public void setLocation(String roomLocation)
-    {
-        this.roomLocation = roomLocation;
-    }
-    
-    public String getLocation()
-    {
-        return this.roomLocation;
-    }
-    
-    public void setRoomID(int r_id)
-    {
-        this.r_id = r_id;
-    }
-    
-    public int getRoomID()
-    {
-        return this.r_id;
-    }
+   public String getRoomID()
+   {
+      return r_ID;
+   }
+
+   public void setRoomID(String r_ID)
+   {
+      this.r_ID = r_ID;
+   }
+
+   public String getRoomLocation()
+   {
+      return r_Location;
+   }
+
+   public void setRoomLocation(String r_Location)
+   {
+      this.r_Location = r_Location;
+   }
+   
+   public boolean getRoomAvailability()
+   {
+      return r_Availability;
+   }
+
+   public void setRoomAvailability(boolean r_Availability)
+   {
+      this.r_Availability = r_Availability;
+   }
+   
+   /*
+   public String getRoomTimeslot()
+   {
+      return r_TImeSlot;
+   }
+
+   public void setRoomTimeslot(String r_TImeSlot)
+   {
+      this.r_TImeSlot = r_TImeSlot;
+   }
+*/
 }
