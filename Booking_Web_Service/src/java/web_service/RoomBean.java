@@ -45,4 +45,7 @@ public class RoomBean {
         }
         return bookedRooms; 
     }   
+    
+    //Collections for Fav Bookings
+
 }

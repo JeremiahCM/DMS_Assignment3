@@ -37,4 +37,14 @@ public class Student {
    {
       this.s_Name = s_Name;
    }
+   
+   public String getXMLString()
+   {
+      StringBuilder buffer = new StringBuilder();
+      buffer.append("<student>");
+      buffer.append("<s_ID>").append(getStudentID()).append("</s_ID>");
+      buffer.append("<s_Name>").append(getStudentName()).append("</s_Name>");
+      buffer.append("</student>");
+      return buffer.toString();
+   }
 }

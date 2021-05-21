@@ -67,4 +67,15 @@ public class Room {
       this.r_TImeSlot = r_TImeSlot;
    }
 */
+   
+   public String getXMLString()
+   {
+      StringBuilder buffer = new StringBuilder();
+      buffer.append("<room>");
+      buffer.append("<r_ID>").append(getRoomID()).append("</r_ID>");
+      buffer.append("<r_Location>").append(getRoomLocation()).append("</r_Location>");
+      buffer.append("<r_Availability>").append(getRoomAvailability()).append("</r_Availability>");
+      buffer.append("</room>");
+      return buffer.toString();
+   }
 }
