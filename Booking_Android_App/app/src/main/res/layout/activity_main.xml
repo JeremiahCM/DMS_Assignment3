@@ -6,13 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/LogIn_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="43dp"
+        android:text="Log In"
+        app:layout_constraintBottom_toTopOf="@+id/url_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/url_edit"
+        android:layout_width="269dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="48dp"
+        android:ems="10"
+        android:inputType="textUri"
+        android:text="@string/initial_url"
+        app:layout_constraintBottom_toTopOf="@+id/student_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/student_edit"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/student_edit"
+        android:layout_width="172dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginLeft="122dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/LogIn_Button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/student_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="61dp"
+        android:text="Student Name: "
+        app:layout_constraintBottom_toTopOf="@+id/url_label"
+        app:layout_constraintEnd_toStartOf="@+id/student_edit"
+        app:layout_constraintHorizontal_bias="0.346"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/student_view"
+        android:layout_width="369dp"
+        android:layout_height="412dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.636" />
+
+    <TextView
+        android:id="@+id/url_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:layout_marginBottom="69dp"
+        android:text="Connection URL:"
+        app:layout_constraintBottom_toTopOf="@+id/student_view"
+        app:layout_constraintEnd_toStartOf="@+id/url_edit"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
