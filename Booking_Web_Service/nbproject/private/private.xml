@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/DMS_Assignment3/Web_Service/src/java/web_service/Student.java</file>
-            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/DMS_Assignment3/Web_Service/src/java/web_service/Room.java</file>
-            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/DMS_Assignment3/Web_Service/web/index.html</file>
-            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/DMS_Assignment3/Web_Service/src/java/web_service/BookingServlet.java</file>
+            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/PetRestfulService_2/src/java/web_service/StudentsResource.java</file>
+            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/PetRestfulService_2/src/java/web_service/ApplicationConfig.java</file>
+            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/PetRestfulService_2/src/java/web_service/BookingsBean.java</file>
+            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/PetRestfulService_2/src/java/web_service/Booking.java</file>
+            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/PetRestfulService_2/src/java/web_service/BookingsResource.java</file>
+            <file>file:/D:/Uni_Work/Year_3/Sem_1/COMP713/PetRestfulService_2/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

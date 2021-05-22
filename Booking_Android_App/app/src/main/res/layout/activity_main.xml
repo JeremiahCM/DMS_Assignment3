@@ -7,12 +7,79 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/student_label"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/booking_student_label"
+        app:layout_constraintBaseline_toBaselineOf="@+id/student_edit"
+        app:layout_constraintEnd_toStartOf="@+id/student_edit"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/student_edit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/student_label"
+        app:layout_constraintEnd_toStartOf="@+id/lookup_button"
+        app:layout_constraintHorizontal_bias="0.5" />
 
+    <Button
+        android:id="@+id/lookup_button"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="lookupBookings"
+        android:text="@string/button_lookup"
+        app:layout_constraintBaseline_toBaselineOf="@+id/student_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/student_edit"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/url_label"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/pet_service_label"
+        app:layout_constraintTop_toBottomOf="@id/student_label"
+        app:layout_constraintBaseline_toBaselineOf="@+id/url_edit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/url_edit"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintHorizontal_bias="0.25" />
+    <EditText
+        android:id="@+id/url_edit"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/initial_url"
+        android:inputType="textUri"
+        app:layout_constraintTop_toBottomOf="@id/student_label"
+        app:layout_constraintStart_toEndOf="@+id/url_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75" />
+    <TextView
+        android:id="@+id/bookings_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:text=""
+        android:gravity="top"
+        app:layout_constraintTop_toBottomOf="@id/url_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

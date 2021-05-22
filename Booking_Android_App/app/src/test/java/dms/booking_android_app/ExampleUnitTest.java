@@ -1,4 +1,4 @@
-package com.example.booking_android_app;
+package dms.booking_android_app;
 
 import org.junit.Test;
 

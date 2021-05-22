@@ -6,93 +6,97 @@ package web_service;
 
 public class Booking
 {
-    private int b_id;
-    private boolean booked;
-    private int s_id;
-    private int r_id;
-    private String time_slot;
+    private String bookingName;
+    private String studentName;
+    private String roomName;
+    private String date;
+    private String time;
 
     public Booking()
     {
     }
     
-    public Booking(int b_id, boolean booked, int s_id, int r_id, String time_slot)
+    public Booking(String bookingName, String studentName, String roomName, String date, String time)
     {
-        setBookingID(b_id);
-        setBooked(booked);
-        setStudentID(s_id);
-        setRoomID(r_id);
-        setTimeSlot(time_slot);
+        setBookingName(bookingName);
+        setStudentName(studentName);
+        setRoomName(roomName);
+        setDate(date);
+        setTime(time);
     }
     
-    //Setter for booking ID
-    public void setBookingID(int b_id)
+    //Setter for booking name
+    public void setBookingName(String bookingName)
     {
-        this.b_id = b_id;
+        this.bookingName = bookingName;
     }
     
-    public int getBookingID()
+    //Getter for booking name
+    public String getBookingName()
     {
-        return b_id;
+        return bookingName;
     }
     
-    //Setter for booked status
-    public void setBooked(boolean booked)
+    //Setter for student name
+    public void setStudentName(String studentName)
     {
-        this.booked = booked;
-    }
-    
-    //Getter for booked status
-    public boolean getBooked()
-    {
-        return booked;
-    }
-    
-    //Setter for student ID
-    public void setStudentID(int e_id)
-    {
-        this.s_id = e_id;
+        this.studentName = studentName;
     }
 
-    //Getter for student ID
-    public int getStudentID()
+    //Getter for student name
+    public String getStudentName()
     {
-        return s_id;
+        return studentName;
     }
     
-    //Setter for room ID
-    public void setRoomID(int r_id)
+    //Setter for room name
+    public void setRoomName(String roomName)
     {
-        this.r_id = r_id;
+        this.roomName = roomName;
     }
 
-    //Getter for room ID
-    public int getRoomID()
+    //Getter for room name
+    public String getRoomName()
     {
-        return r_id;
+        return roomName;
     }
     
-    //Setter for time slot
-    public void setTimeSlot(String time_slot)
+    //Setter for date
+    public void setDate(String date)
     {
-        this.time_slot = time_slot;
+        this.date = date;
     }
     
-    //Getter for time slot
-    public String getTimeSlot()
+    //Getter for date
+    public String getDate()
     {
-        return time_slot;
+        return date;
     }
     
+    //Setter for time
+    public void setTime(String time)
+    {
+        this.time = time;
+    }
+    
+    //Getter for time
+    public String getTime()
+    {
+        return time;
+    }
+    
+   /*
+     #SERIALIZABLE
+    */
     public String getXMLString()
     {
         StringBuilder buffer = new StringBuilder();
         buffer.append("<booking>");
-        buffer.append("<b_id>").append(getBookingID()).append("</b_id>");
-        buffer.append("<booked>").append(getBooked()).append("</booked>");
-        buffer.append("<s_id>").append(getStudentID()).append("</s_id>");
-        buffer.append("<r_id>").append(getRoomID()).append("</r_id>");
-        buffer.append("<time_slot>").append(getTimeSlot()).append("</time_slot>");
+        buffer.append("<bookingName>").append(getBookingName()).append("</bookingName>");
+        buffer.append("<studentName>").append(getStudentName()).append("</studentName>");
+        buffer.append("<roomName>").append(getRoomName()).append("</roomName>");
+        buffer.append("<date>").append(getDate()).append("</date>");
+        buffer.append("<time>").append(getTime()).append("</time>");
         buffer.append("</booking>");
         return buffer.toString();
     }
