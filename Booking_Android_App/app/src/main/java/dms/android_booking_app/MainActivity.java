@@ -4,32 +4,45 @@
  */
 package dms.android_booking_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.webkit.WebViewClient;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity
 {
+    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
+
+        WebView simpleWebView = findViewById(R.id.loginWebView);
+        simpleWebView.setWebViewClient(new MyWebViewClient());
+
+        String url = "https://blackboard.aut.ac.nz/webapps/login/?action=relogin";
+        simpleWebView.getSettings().setJavaScriptEnabled(true);
+        simpleWebView.loadUrl(url); // load the url on the web view
     }
 
-    /** Called when the user taps the Lookup bookings button */
-    public void lookupBookings(View view)
-    {
-        EditText editStudent = (EditText) findViewById(R.id.student_edit);
-        String bookingStudent = editStudent.getText().toString();
-        EditText editUrl = (EditText) findViewById(R.id.url_edit);
-        String bookingUrl = editUrl.getText().toString();
-        // ensure url ends with / as the owner name will be appended
-        if (!bookingUrl.endsWith("/"))
-            bookingUrl = bookingUrl + "/";
-        TextView bookingsView = (TextView) findViewById(R.id.bookings_view);
-        RestfulLookupTask task = new RestfulLookupTask(bookingsView);
-        task.execute(bookingUrl+bookingStudent);
+    private class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            Toast.makeText(MainActivity.this, url, Toast.LENGTH_LONG).show();
+            // load the url
+            view.setVisibility(View.INVISIBLE);
+
+            //once user logs in with url successfully, redirect them to the home page of this app
+            Intent homeIntent = new Intent(MainActivity.this, LookUpBookingsActivity.class);
+            startActivity(homeIntent);
+            return true;
+        }
     }
 }
