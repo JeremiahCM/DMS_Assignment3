@@ -85,9 +85,6 @@ public class Booking
         return time;
     }
     
-   /*
-     #SERIALIZABLE
-    */
     public String getXMLString()
     {
         StringBuilder buffer = new StringBuilder();

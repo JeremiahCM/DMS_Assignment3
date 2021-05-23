@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Booking_Android_App</string>
+    <string name="app_name">Booking Android App</string>
+    <string name="booking_student_label">Enter booking student</string>
+    <string name="booking_name_label">Booking name</string>
+    <string name="booking_room_label">Room name</string>
+    <string name="booking_date_label">Date</string>
+    <string name="booking_time_label">Time</string>
+    <string name="button_lookup">Lookup bookings</string>
+    <string name="booking_service_label">Enter booking URL</string>
+    <string name="initial_url">http://192.168.20.9:8080/Booking_Web_Service/web_service/students/</string>
 </resources>

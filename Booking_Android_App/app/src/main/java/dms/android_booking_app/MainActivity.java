@@ -1,10 +1,14 @@
-package dms.booking_android_app;
+/**
+ * A Java Android application accessing the bookings
+ * RESTful web service.
+ */
+package dms.android_booking_app;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -14,7 +18,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
     }
 
-    /** Called when the user taps the Lookup pets button */
+    /** Called when the user taps the Lookup bookings button */
     public void lookupBookings(View view)
     {
         EditText editStudent = (EditText) findViewById(R.id.student_edit);
