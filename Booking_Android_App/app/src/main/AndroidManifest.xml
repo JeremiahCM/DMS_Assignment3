@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LookUpBookingsActivity" />
+        <activity android:name=".LookupBookingsActivity" />
+        <activity android:name=".InsertBookingActivity" />
+        <activity android:name=".DeleteBookingActivity" />
     </application>
 </manifest>

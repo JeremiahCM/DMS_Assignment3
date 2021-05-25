@@ -7,6 +7,7 @@ package dms.android_booking_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,14 +34,16 @@ public class MainActivity extends AppCompatActivity
 
     private class MyWebViewClient extends WebViewClient {
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            Toast.makeText(MainActivity.this, url, Toast.LENGTH_LONG).show();
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            view.loadUrl(request.getUrl().toString());
+            Toast.makeText(MainActivity.this, request.getUrl().toString(), Toast.LENGTH_LONG).show();
             // load the url
             view.setVisibility(View.INVISIBLE);
 
             //once user logs in with url successfully, redirect them to the home page of this app
-            Intent homeIntent = new Intent(MainActivity.this, LookUpBookingsActivity.class);
+            //Intent homeIntent = new Intent(MainActivity.this, LookupBookingsActivity.class);
+            //Intent homeIntent = new Intent(MainActivity.this, InsertBookingActivity.class);
+            Intent homeIntent = new Intent(MainActivity.this, DeleteBookingActivity.class);
             startActivity(homeIntent);
             return true;
         }
