@@ -12,17 +12,22 @@ import javax.ejb.Singleton;
 @Singleton
 public class BookingsBean
 {
-    private List<Booking> bookings; // list of all bookings
+    private List<Booking> bookings; //list of all bookings
 
     @PostConstruct
     public void initialiseBookingCollection()
     {
-        // convenience list to avoid using any database
+        //initiating list instead of having a database
         bookings = new ArrayList<>();
-        addBooking("CISE Sprint Review", "Jeremiah", "WZ305", "Jun 14", "10:00 - 11:00am");
-        addBooking("RnD Meeting", "Trisha", "WS201", "Jun 16", "2:00pm - 3:00pm");
-        addBooking("Final Presentation", "John", "WA404", "Jun 13",  "1:00 - 2:00pm");
-        addBooking("Project Work", "Jeremiah", "WZ305", "Jun 16", "1:00 - 3:00pm");
+        addBooking("CISE Sprint Review", "Jeremiah", "WZ305", "Jun 14", "10:00am - 11:00am");
+        addBooking("RnD Client Meeting", "Trisha", "WS201", "Jun 17", "2:00pm - 3:00pm");
+        addBooking("Final Presentation", "John", "WT702", "Jun 13",  "1:00pm - 2:00pm");
+        addBooking("DMS Assignment 3", "Jeremiah", "WZ305", "Jun 18", "2:00pm - 4:00pm");
+        addBooking("RnD Mentor Meeting", "Trisha", "WZ315", "Jun 17", "12:00pm - 2:00pm");
+        addBooking("Project Work", "Olivia", "WZ701", "Jun 13", "10:00am - 4:00pm");
+        addBooking("Web Development", "Zhang", "WZ315", "Jun 21", "9:00am - 11:00am");
+        addBooking("AI Assignment 2", "Jeremiah", "WS601", "Jun 20", "4:00pm - 6:00pm");
+        addBooking("DMS Assignment 1", "John", "WZ305", "Jun 21", "3:00pm - 5:00pm");
     }
 
     public void addBooking(String bookingName, String studentName, String roomName, String date, String time)
@@ -41,7 +46,7 @@ public class BookingsBean
                 return true;
             }
         }
-        return false; // booking not found in collection
+        return false;
     }
 
     public Collection<Booking> getBookings()
@@ -65,10 +70,10 @@ public class BookingsBean
         Collection<Booking> studentBookings = new ArrayList<Booking>();
         for (Booking booking : bookings)
         {
-          if(booking.getStudentName().equals(studentName))
-             studentBookings.add(booking);
-       }
-       return studentBookings;
+            if(booking.getStudentName().equals(studentName))
+                studentBookings.add(booking);
+        }
+        return studentBookings;
     }
 
     public Collection<String> getStudents()

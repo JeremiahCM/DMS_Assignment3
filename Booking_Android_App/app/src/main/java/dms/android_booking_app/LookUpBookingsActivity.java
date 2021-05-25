@@ -1,6 +1,6 @@
 /**
- * A Java Android application accessing the bookings
- * RESTful web service.
+ * Activity for looking up bookings
+ * in the RESTful web service.
  */
 package dms.android_booking_app;
 
@@ -21,7 +21,7 @@ public class LookupBookingsActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.lookup_activity);
         lookupButton = findViewById(R.id.lookup_nav_button);
         insertButton = findViewById(R.id.insert_nav_button);
         deleteButton = findViewById(R.id.delete_nav_button);
@@ -34,17 +34,19 @@ public class LookupBookingsActivity extends AppCompatActivity implements View.On
     public void lookupBookings(View view)
     {
         EditText editStudent = (EditText) findViewById(R.id.lookup_student_edit);
-        String bookingStudent = editStudent.getText().toString();
         EditText editUrl = (EditText) findViewById(R.id.url_edit);
+        String bookingStudent = editStudent.getText().toString();
         String bookingUrl = editUrl.getText().toString();
-        // ensure url ends with / as the owner name will be appended
+
         if (!bookingUrl.endsWith("/"))
             bookingUrl = bookingUrl + "/";
+
         TextView bookingsView = (TextView) findViewById(R.id.bookings_view);
         RestfulLookupTask task = new RestfulLookupTask(bookingsView);
         task.execute(bookingUrl+bookingStudent);
     }
 
+    /** Button action listener for activity navigation */
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.insert_nav_button:

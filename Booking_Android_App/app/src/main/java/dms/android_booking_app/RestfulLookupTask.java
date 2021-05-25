@@ -1,6 +1,6 @@
 /**
- * An Aysnc class that accepts a URL as a string and makes a background
- * HTTP request to that URL.
+ * An Aysnc Task that accepts a URL as a string and makes
+ * a background GET request to that URL.
  */
 package dms.android_booking_app;
 
@@ -34,8 +34,8 @@ public class RestfulLookupTask extends AsyncTask<String, Void, String>
             URL bookingUrl = new URL(params[0]);
             HttpURLConnection conn
                     = (HttpURLConnection) bookingUrl.openConnection();
-            conn.setReadTimeout(3000); // 3000ms
-            conn.setConnectTimeout(3000); // 3000ms
+            conn.setReadTimeout(3000); // 3 seconds
+            conn.setConnectTimeout(3000); // 3 seconds
             conn.setRequestMethod("GET");
             int responseCode = conn.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK)
@@ -105,6 +105,7 @@ public class RestfulLookupTask extends AsyncTask<String, Void, String>
                             .append("\n");
                     bookingIndex = xmlResponse.indexOf("<booking>", bookingIndex+1);
                 }
+
                 return bookingsList.toString();
             }
             else

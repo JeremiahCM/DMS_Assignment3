@@ -1,6 +1,6 @@
 /**
- * A Java Android application accessing the bookings
- * RESTful web service.
+ * Activity for inserting new bookings
+ * in the RESTful web service.
  */
 package dms.android_booking_app;
 
@@ -30,7 +30,7 @@ public class InsertBookingActivity extends AppCompatActivity implements View.OnC
         deleteButton.setOnClickListener(this);
     }
 
-    /** Called when the user taps the Lookup bookings button */
+    /** Called when the user taps the Insert bookings button */
     public void insertBooking(View view)
     {
         EditText editStudent = (EditText) findViewById(R.id.insert_student_edit);
@@ -38,21 +38,23 @@ public class InsertBookingActivity extends AppCompatActivity implements View.OnC
         EditText editRoom = (EditText) findViewById(R.id.insert_room_edit);
         EditText editDate = (EditText) findViewById(R.id.insert_date_edit);
         EditText editTime = (EditText) findViewById(R.id.insert_time_edit);
+        EditText editUrl = (EditText) findViewById(R.id.url_edit);
         String studentName = editStudent.getText().toString();
         String bookingName = editBooking.getText().toString();
         String roomName = editRoom.getText().toString();
         String date = editDate.getText().toString();
         String time = editTime.getText().toString();
-        EditText editUrl = (EditText) findViewById(R.id.url_edit);
         String bookingUrl = editUrl.getText().toString();
-        // ensure url ends with / as the owner name will be appended
+
         if (!bookingUrl.endsWith("/"))
             bookingUrl = bookingUrl + "/";
+
         TextView bookingsView = (TextView) findViewById(R.id.bookings_view);
         RestfulInsertTask task = new RestfulInsertTask(bookingsView, studentName, bookingName, roomName, date, time);
         task.execute(bookingUrl+studentName+"/"+bookingName+"/"+roomName+"/"+date+"/"+time);
     }
 
+    /** Button action listener for activity navigation */
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.lookup_nav_button:

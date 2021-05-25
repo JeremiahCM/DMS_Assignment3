@@ -1,6 +1,6 @@
 /*
- * JAX-RS class overridden to specifify the application path for
- * RESTful services
+ * JAX-RS class overridden to specifify the
+ *  application path for RESTful services
  */
 package web_service;
 

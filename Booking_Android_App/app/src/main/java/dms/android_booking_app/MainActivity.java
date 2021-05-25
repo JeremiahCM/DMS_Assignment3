@@ -1,6 +1,6 @@
 /**
- * A Java Android application accessing the bookings
- * RESTful web service.
+ * Login page for Java Android application to access the
+ * bookings app which interacts with a RESTful web service.
  */
 package dms.android_booking_app;
 
@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.webkit.WebViewClient;
 
@@ -37,13 +35,9 @@ public class MainActivity extends AppCompatActivity
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             view.loadUrl(request.getUrl().toString());
             Toast.makeText(MainActivity.this, request.getUrl().toString(), Toast.LENGTH_LONG).show();
-            // load the url
             view.setVisibility(View.INVISIBLE);
 
-            //once user logs in with url successfully, redirect them to the home page of this app
-            //Intent homeIntent = new Intent(MainActivity.this, LookupBookingsActivity.class);
-            Intent homeIntent = new Intent(MainActivity.this, InsertBookingActivity.class);
-            //Intent homeIntent = new Intent(MainActivity.this, DeleteBookingActivity.class);
+            Intent homeIntent = new Intent(MainActivity.this, LookupBookingsActivity.class);
             startActivity(homeIntent);
             return true;
         }
