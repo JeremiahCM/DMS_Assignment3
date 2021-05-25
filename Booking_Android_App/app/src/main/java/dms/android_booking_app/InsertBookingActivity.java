@@ -4,18 +4,30 @@
  */
 package dms.android_booking_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class InsertBookingActivity extends AppCompatActivity
+public class InsertBookingActivity extends AppCompatActivity implements View.OnClickListener
 {
+    public Button lookupButton;
+    public Button insertButton;
+    public Button deleteButton;
+
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.insert_activity);
+        lookupButton = findViewById(R.id.lookup_nav_button);
+        insertButton = findViewById(R.id.insert_nav_button);
+        deleteButton = findViewById(R.id.delete_nav_button);
+        lookupButton.setOnClickListener(this);
+        insertButton.setOnClickListener(this);
+        deleteButton.setOnClickListener(this);
     }
 
     /** Called when the user taps the Lookup bookings button */
@@ -39,5 +51,18 @@ public class InsertBookingActivity extends AppCompatActivity
         TextView bookingsView = (TextView) findViewById(R.id.bookings_view);
         RestfulInsertTask task = new RestfulInsertTask(bookingsView, studentName, bookingName, roomName, date, time);
         task.execute(bookingUrl+studentName+"/"+bookingName+"/"+roomName+"/"+date+"/"+time);
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.lookup_nav_button:
+                Intent lookupIntent = new Intent(InsertBookingActivity.this, LookupBookingsActivity.class);
+                startActivity(lookupIntent);
+                break;
+            case R.id.delete_nav_button:
+                Intent deleteIntent = new Intent(InsertBookingActivity.this, DeleteBookingActivity.class);
+                startActivity(deleteIntent);
+                break;
+        }
     }
 }

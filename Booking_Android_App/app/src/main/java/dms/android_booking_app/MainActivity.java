@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity
 
             //once user logs in with url successfully, redirect them to the home page of this app
             //Intent homeIntent = new Intent(MainActivity.this, LookupBookingsActivity.class);
-            //Intent homeIntent = new Intent(MainActivity.this, InsertBookingActivity.class);
-            Intent homeIntent = new Intent(MainActivity.this, DeleteBookingActivity.class);
+            Intent homeIntent = new Intent(MainActivity.this, InsertBookingActivity.class);
+            //Intent homeIntent = new Intent(MainActivity.this, DeleteBookingActivity.class);
             startActivity(homeIntent);
             return true;
         }
